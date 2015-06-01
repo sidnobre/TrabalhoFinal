@@ -71,9 +71,5 @@ public class LoginController {
 			session.invalidate();
 			return "redirect:home";
 		}
-		
-		@RequestMapping("acesso_negado")
-		public String acessoNegado(){
-			return "alerta/acesso_negado";
-		}
+
 }

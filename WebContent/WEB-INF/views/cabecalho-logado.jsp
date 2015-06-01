@@ -30,7 +30,7 @@
 						<li class="active"><a href="home">Home</a></li>
 						<li class="active"><a href="classificado">Classificados</a></li>
                          <li class="dropdown">
-                            <a href="#" class="active" class="dropdown-toggle"  data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle"  data-toggle="dropdown">
                             Seções
                             <b class="caret"></b>
                             </a>                            
@@ -40,6 +40,7 @@
 								</c:forEach>
                             </ul>
                         </li>
+                        <li class="active"><a href="logout">Sair</a></li>
                     
 				</ul>
 			</div>

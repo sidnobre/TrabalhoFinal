@@ -7,8 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" /> 
+<title>Cadastre-se</title>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/menu.css" />" />  
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script> 
 </head>
 <body background="<c:url value="/resources/img/background.png" />">
 	<!--Cabeçalho da pagina -->
