@@ -28,7 +28,7 @@
 				<li class="active"><a href="cadastro_classificado">Cadastrar Classificado</a></li>
 				<li class="active"><a href="cadastro_secao">Cadastrar Secao</a></li>
 				<li class="active"><a href="logout">Sair</a></li>
-				</li>	
+					
 		</ul>
 		</div>
 	</div>

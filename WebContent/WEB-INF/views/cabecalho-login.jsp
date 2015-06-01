@@ -1,17 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/menu.css" />" />
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>   
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NewsWatch</title>
-</head>
-<body background="<c:url value="/resources/img/background.png" />">
-		<!--CabeÃ§alho da pagina -->
+		<!--Cabeçalho da pagina -->
 	
 	<div class="container">
 	<div class="well">
@@ -32,7 +25,7 @@
 							</div>
 							<div class="input-group">
 								<input type="submit" value="Entrar" class="btn"/>	
-								<font size="2">NÃ£o tem conta? <a href="cadastrarLeitor">Cadastre-se</a></font>		 
+								<font size="2">Não tem conta? <a href="cadastrarLeitor">Cadastre-se</a></font>		 
 							</div>
 					</form>
 				</td>
@@ -43,20 +36,20 @@
 			<div id="nav" class="container">
 				<ul class="nav nav-pills" >
 						<li class="active"><a href="home">Home</a></li>
-						<li class="active"><a href="classificado">Classificados</a>
-						 <li class="active">
-							<a href=>SeÃ§Ãµes <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu" >
-							<c:forEach items="${secoes}" var="secao">
-								<li class="active" ><a href="secao?idsecao=${secao.id}">${secao.titulo}</a></li>
-							</c:forEach>
-							</ul>
-						
-						</li>
+						<li class="active"><a href="classificado">Classificados</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="active" class="dropdown-toggle"  data-toggle="dropdown">
+                            Seções
+                            <b class="caret"></b>
+                            </a>                            
+                            <ul class="dropdown-menu">
+                                <c:forEach items="${secoes}" var="secao">
+									<li class="active" ><a href="secao?idsecao=${secao.id}">${secao.titulo}</a></li>
+								</c:forEach>
+                            </ul>
+                        </li>
+                    
 				</ul>
 			</div>
 		</div>
 		</div>
-		
-</body>
-</html>

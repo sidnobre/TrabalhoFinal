@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
 import br.ufc.dao.noticia.NoticiaDAO;
+import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.LeitorDAO;
 import br.ufc.model.noticia.Noticia;
 import br.ufc.model.usuario.Leitor;
@@ -59,6 +60,9 @@ public class LeitorController {
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
 		
+		SecaoDAO sDAO = new SecaoDAO(conn);
+		model.addAttribute("secoes", sDAO.listar());
+		
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
 		model.addAttribute("noticias", nDAO.listarID(id));
 		
@@ -69,6 +73,9 @@ public class LeitorController {
 	public String exibirNoticiaSecao(int idsecao, Model model){
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
+
+		SecaoDAO sDAO = new SecaoDAO(conn);
+		model.addAttribute("secoes", sDAO.listar());
 		
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
 		model.addAttribute("noticias", nDAO.listarSecao(idsecao));
