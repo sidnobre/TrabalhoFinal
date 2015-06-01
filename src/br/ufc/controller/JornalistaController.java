@@ -17,6 +17,7 @@ import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.model.noticia.Noticia;
 
 @Controller
+@RequestMapping("jornalista")
 public class JornalistaController {
 	
 	@RequestMapping("menu_jornalista")

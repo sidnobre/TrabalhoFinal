@@ -16,6 +16,7 @@ import br.ufc.model.noticia.Secao;
 import br.ufc.model.usuario.Jornalista;
 
 @Controller
+@RequestMapping("editor")
 public class EditorController {
 	
 	@RequestMapping("menu_editor")

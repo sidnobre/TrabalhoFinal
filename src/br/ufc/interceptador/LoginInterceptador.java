@@ -11,24 +11,27 @@ public class LoginInterceptador extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller) throws Exception {
 		
 		String uri = request.getRequestURI();
-		//retirar isso
-		/*
-		if (uri.contains("editor") && request.getSession().getAttribute("editorLogado") == null) {
-			response.sendRedirect("loginForm");
+		
+		if ((uri.contains("editor")) && request.getSession().getAttribute("editorLogado") == null) {
+			response.sendRedirect("../loginForm");
 			return false;
 		}
 
-		if (uri.contains("jornalista") && request.getSession().getAttribute("jornalistaLogado") == null) {
-			response.sendRedirect("loginForm");
-			return false;
+
+		if (uri.endsWith("menu_jornalista") || uri.endsWith("cadastra_noticia") || uri.endsWith("efetuar_cadastro_noticia")){
+			if(request.getSession().getAttribute("jornalistaLogado") == null) {
+				response.sendRedirect("../loginForm");
+				return false;
+			}
 		}
+		
 		
 		if(uri.endsWith("comentar") || uri.endsWith("cadastra_comentario") || uri.endsWith("ofertar")){
 			if(request.getSession().getAttribute("usuarioLogado") == null)
 				response.sendRedirect("loginForm");
 				return false;
 		}
-		*/
+		
 		return true;
 	}
 

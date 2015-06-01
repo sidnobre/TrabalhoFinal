@@ -19,7 +19,7 @@
 				<td width="50"></td>
 			</tr>
 		</table>
-	
+
 		<!-- Menu NAVBAR -->
 		<div id="nav" class="container" >
 		<ul class="nav nav-pills" >
@@ -27,7 +27,7 @@
 				<li class="active"><a href="cadastro_jornalista">Cadastrar Jornalista</a></li>
 				<li class="active"><a href="cadastro_classificado">Cadastrar Classificado</a></li>
 				<li class="active"><a href="cadastro_secao">Cadastrar Secao</a></li>
-				<li class="active"><a href="logout">Sair</a></li>
+				<li class="active"><a href="../logout">Sair</a></li>
 					
 		</ul>
 		</div>

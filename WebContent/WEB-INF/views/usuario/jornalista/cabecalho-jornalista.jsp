@@ -25,8 +25,7 @@
 		<ul class="nav nav-pills" >
 				<li class="active"><a href="home">Home</a></li>
 				<li class="active"><a href="cadastra_noticia">Cadastrar Noticia</a></li>
-				<li class="active"><a href="logout">Sair</a></li>
-				</li>	
+				<li class="active"><a href="../logout">Sair</a></li>
 		</ul>
 	</div>
 	

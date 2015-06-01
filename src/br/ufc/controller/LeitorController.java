@@ -56,7 +56,7 @@ public class LeitorController {
 	}
 	
 	@RequestMapping("noticia")
-	public String exibirNoticia(int id, Model model){
+	public String exibirNoticia(int id, Model model, HttpSession session){
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
 		
@@ -66,7 +66,12 @@ public class LeitorController {
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
 		model.addAttribute("noticias", nDAO.listarID(id));
 		
-		return "usuario/leitor/noticia";
+		if(session.getAttribute("usuarioLogado")==null 
+				&& session.getAttribute("jornalistaLogado")==null
+				&& session.getAttribute("editorLogado")==null)
+					return "usuario/leitor/noticia-login";
+		
+		return "usuario/leitor/noticia-logado";
 	}
 	
 	@RequestMapping("secao")

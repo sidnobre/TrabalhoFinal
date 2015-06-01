@@ -10,30 +10,8 @@
 </head>
 <body  background="<c:url value="/resources/img/background.png" />">
 	<!--Cabeçalho da pagina -->
-	<div class="container">
-		<table background="<c:url value="/resources/img/header.jpg" />">
-			<tr height="100">
-				<td width="50"></td>
-				<td width="600">
-				
-					<img height="100" src="<c:url value="/resources/img/logo.png" />">
-					
-				</td><td align="right" width="1000">
-					Bem vindo, <b>${jornalistaLogado.nome}</b>
-				</td>
-			</tr>
-		</table>
-		</div>
-		<!-- Menu NAVBAR -->
-		<div id="nav" class="container" >
-		<ul class="nav nav-pills" >
-				<li class="active"><a href="home">Home</a></li>
-				<li class="active"><a href="cadastra_noticia">Cadastrar Noticia</a></li>
-				<li class="active"><a href="logout">Sair</a></li>
-				</li>	
-		</ul>
-	</div>
-	
+	<c:import url="cabecalho-jornalista.jsp" />
+	 
 	<!-- Rodapé -->
 	<c:import url="../../rodape.jsp" />
 	
