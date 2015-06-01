@@ -5,59 +5,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>   
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>   
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>NewsWatch</title>
 </head>
 <body background="<c:url value="/resources/img/background.png" />">
 		<!--Cabeçalho da pagina -->
+	<c:import url="../../cabecalho-login.jsp" />
 	
-	<div class="container">
-		<table background="<c:url value="/resources/img/header.jpg" />">
-			<tr height="100">
-				<td width="50"></td>
-				<td width="600">
-				
-					<img height="100" src="<c:url value="/resources/img/logo.png" />">
-					
-				</td><td align="right" width="1000">
-					<!-- Fomulario Login -->
-					 <form action="efetuaLogin" method="post">
-				
-							<div class="input-group" align="right">
-								<input type="text" name="login"  class="input-medium" placeholder="Login" aria-describedby="sizing-addon1"/>
-								<input type="password" name="senha" class="input-medium" placeholder="Senha" aria-describedby="sizing-addon1"/>
-							</div>
-							<div class="input-group">
-								<input type="submit" value="Entrar" class="btn"/>	
-								<font size="2">Não tem conta? <a href="cadastrarLeitor">Cadastre-se</a></font>		 
-							</div>
-					</form>
-				</td>
-				<td width="50"></td>
-			</tr>
-		</table>
-	</div>
-
-
-	<!-- Menu NAVBAR -->
-	<div id="nav" class="container">
-		<ul class="nav nav-pills" >
-				<li class="active"><a href="home">Home</a></li>
-				<li class="active"><a href="jornalista/menu_jornalista">Menu Jornalista</a></li>
-				<li class="active"><a href="editor/menu_editor">Menu Editor</a></li>
-				 <li class="active">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Seções <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu" >
-						<li role="presentation" class="dropdown-header">Testa Dropdown</li>
-					<c:forEach items="${secoes}" var="secao">
-						<li class="active" ><a href="secao?=${secao.id}">${secao.titulo}</a></li>
-					</c:forEach>
-					</ul>
-				</li>	
-		</ul>
-	</div>
 	<div class="container">
 	<!-- Noticias -->
 	<c:forEach items="${noticias}" var="noticia">
@@ -80,13 +36,6 @@
 	</div>
 	
 	<!-- Rodapé -->
-	<div>
-		<table height="100pp" width="1366pp" >
-			<tr valign="baseline" height="100pp" background="<c:url value="/resources/img/header.jpg" />">
-				<td>
-				</td>
-			</tr>
-		</table>
-	</div>
+	<c:import url="rodape.jsp" />
 </body>
 </html>

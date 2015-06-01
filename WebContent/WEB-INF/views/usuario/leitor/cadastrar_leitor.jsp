@@ -12,27 +12,7 @@
 </head>
 <body background="<c:url value="/resources/img/background.png" />">
 	<!--Cabeçalho da pagina -->
-	<div>
-		<table height="100pp" background="<c:url value="/resources/img/header.jpg" />">
-			<tr >
-				<td width="500px">
-				
-					<img align="middle"   width="400pp" src="<c:url value="/resources/img/logo.png" />">
-					
-				</td><td width="1366px" align="right">
-										
-				</td>
-			</tr><tr>
-				<td></td>
-				<!-- Menu NAVBAR -->
-				<td align="right">
-				<a href="pagina_inicial">Home</a> |
-				<a href="menu_jornalista">Menu Jornalista</a> |
-				<a href="menu_editor">Menu Editor</a>
-				</td>
-			</tr>
-		</table>
-	</div>
+	<c:import url="../../cabecalho-login.jsp" />
 	
 	<!-- Formulario -->
 	<div align="center" class="container">
@@ -72,5 +52,7 @@
 	</form>
 	</div>
 	</div>
+	<!-- Rodapé -->
+	<c:import url="../../rodape.jsp" />
 </body>
 </html>

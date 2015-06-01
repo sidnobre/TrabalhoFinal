@@ -5,14 +5,14 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
-<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>NewsWatch</title>
 </head>
 <body background="<c:url value="/resources/img/background.png" />">
 	<!--Cabeçalho da pagina -->
-		<c:import url="cabecalho-logado.jsp" />
+	<c:import url="cabecalho-logado.jsp" />
 	
 	<!-- Noticias -->
 	<c:import url="mostra-noticia.jsp"></c:import>

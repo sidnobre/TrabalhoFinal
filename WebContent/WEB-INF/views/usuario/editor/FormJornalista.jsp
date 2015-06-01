@@ -39,6 +39,7 @@
 	</div>
 	<!-- Formulario -->
 	<div class="container" align="center">
+	<div class="well">
 	<form action="cadastraJornalista" method="post">
 		
 		<table>
@@ -79,5 +80,8 @@
 
 	</form>
 	</div>
+	</div>
+	<!-- Rodapé -->
+	<c:import url="../../rodape.jsp" />
 </body>
 </html>

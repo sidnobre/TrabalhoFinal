@@ -102,5 +102,7 @@
 		</form>
 	</div>
 	</div>
+	<!-- Rodapé -->
+	<c:import url="../../rodape.jsp" />
 </body>
 </html>

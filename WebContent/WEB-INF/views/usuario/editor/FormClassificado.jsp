@@ -40,5 +40,8 @@
 
 	<!-- Formulario -->
 
+	<!-- Rodapé -->
+	<c:import url="../../rodape.jsp" />
+
 </body>
 </html>

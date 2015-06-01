@@ -37,7 +37,8 @@
 		</ul>
 	</div>
 	<!-- Formulario -->
-	<div align="center" class="media-body">
+	<div align="center" class="container">
+	<div class="well">
 	<form action="cadastraSecao" method="post">
 		<table>
 			<tr>
@@ -63,5 +64,9 @@
 		</table>
 	</form>
 	</div>
+	</div>
+	
+	<!-- Rodapé -->
+	<c:import url="../../rodape.jsp" />
 </body>
 </html>
