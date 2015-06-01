@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f"%>
 	<!-- Noticias -->
 	<div class="container">
 	<c:forEach items="${noticias}" var="noticia">
@@ -15,7 +15,8 @@
 	    		<h5 class="media-heading">${noticia.subtitulo}</h5>
 	          <p class="text-right">Por ${noticia.autor}</p>
 	          <p>${noticia.texto}</p>
-	       </div>   
+	          
+	       </div>  
 	    </div> 
 	  </div>
 	  </c:forEach>

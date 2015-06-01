@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
+import br.ufc.dao.noticia.ComentarioDAO;
 import br.ufc.dao.noticia.NoticiaDAO;
 import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.LeitorDAO;
@@ -59,12 +60,15 @@ public class LeitorController {
 	public String exibirNoticia(int id, Model model, HttpSession session){
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
-		
+
 		SecaoDAO sDAO = new SecaoDAO(conn);
 		model.addAttribute("secoes", sDAO.listar());
 		
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
 		model.addAttribute("noticias", nDAO.listarID(id));
+		
+		ComentarioDAO cDAO = new ComentarioDAO(conn);
+		model.addAttribute("comentarios", cDAO.listar(id));
 		
 		if(session.getAttribute("usuarioLogado")==null 
 				&& session.getAttribute("jornalistaLogado")==null

@@ -16,8 +16,26 @@
 	<c:import url="../../cabecalho-logado.jsp" />
 	
 	<!-- Noticias -->
-	<c:import url="../../mostra-noticia.jsp"></c:import>
+	<c:import url="../../mostra-noticia.jsp"/>
 	
+	<!-- Comentarios -->
+	<div class="container">
+	<div class="well">
+		<h5>Comentarios</h5>
+		<c:import url="comentario.jsp"></c:import>
+		<div class="well">
+		<form action="comentar">
+			<input class="input-large" type="text" name="texto" placeholder="Comente aqui!" />
+			<input type="hidden" name="idNoticia" value=${noticia.id} />
+			<input type="hidden" name="autor" value="${usuarioLogado.login}" />
+			<button id="enviarComentario" class="btn" name="enviarComentario">Comentar</button>		
+		</form>
+		</div>
+	</div>
+	</div>
+	
+	
+
 	<!-- Rodapé -->
 	<c:import url="../../rodape.jsp" />
 </body>

@@ -18,6 +18,14 @@
 	<!-- Noticias -->
 	<c:import url="../../mostra-noticia.jsp"></c:import>
 	
+	<!-- Comentarios -->
+	<div class="container">
+	<div class="well">
+		<h5>Comentarios</h5>
+		<c:import url="comentario.jsp"></c:import>
+	</div>
+	</div>
+	
 	<!-- Rodapé -->
 	<c:import url="../../rodape.jsp" />
 </body>

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufc.model.noticia.Comentario;
-import br.ufc.model.noticia.Noticia;
 
 public class ComentarioDAO {
 	private Connection conn;
@@ -35,13 +34,13 @@ public class ComentarioDAO {
 		}
 	}
 	
-	public List<Comentario>  listar(Noticia noticia) {
+	public List<Comentario>  listar(int idNoticia) {
 		List<Comentario> comentarios = new ArrayList<Comentario>();
-		String sql = "select * FROM comentario WHERE noticia==? ORDER BY id DESC";
+		String sql = "select * FROM comentario WHERE idNoticia=?";
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, noticia.getId());
+			stmt.setInt(1, idNoticia);
 			ResultSet rs = stmt.executeQuery();
 					
 			while(rs.next()){
