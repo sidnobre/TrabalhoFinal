@@ -23,7 +23,8 @@
 		<div class="control-group">
 		  <label class="control-label" for="titulo">Título</label>
 		  <div class="controls">
-		    <input id="titulo" name="titulo" type="text" class="inputlg">
+		    <input id="titulo" name="titulo" type="text" class="inputlg"
+		    	style="margin-left: 0px; margin-right: 0px; width: 774px;">
 		    <form:errors path="noticia.titulo" cssStyle="color:red" />
 		    
 		  </div>
@@ -33,7 +34,8 @@
 		<div class="control-group">
 		  <label class="control-label" for="subtitulo">Subtítulo</label>
 		  <div class="controls">
-		    <input id="subtitulo" name="subtitulo" type="text" class="inputlg" >
+		    <input id="subtitulo" name="subtitulo" type="text" class="inputlg"
+		    	style="margin-left: 0px; margin-right: 0px; width: 774px;" >
 		    <form:errors path="noticia.subtitulo" cssStyle="color:red" />
 		  </div>
 		</div>
@@ -61,7 +63,8 @@
 		<div class="control-group">
 		  <label class="control-label" for="texto">Texto</label>
 		  <div class="controls">                     
-		    <textarea id="texto" name="texto" cols="50" rows="10"></textarea>
+		    <textarea id="texto" name="texto" cols="50" rows="10" 
+		    	style="margin-left: 0px; margin-right: 0px; width: 774px;"></textarea>
 		    <form:errors path="noticia.texto" cssStyle="color:red" />
 		  </div>
 		</div>

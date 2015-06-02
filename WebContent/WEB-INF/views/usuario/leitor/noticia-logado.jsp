@@ -16,24 +16,51 @@
 	<c:import url="../../cabecalho-logado.jsp" />
 	
 	<!-- Noticias -->
-	<c:import url="../../mostra-noticia.jsp"/>
-	
-	<!-- Comentarios -->
 	<div class="container">
-	<div class="well">
-		<h5>Comentarios</h5>
-		<c:import url="comentario.jsp"></c:import>
+		<c:forEach items="${noticias}" var="noticia">
 		<div class="well">
-		<form action="comentar">
-			<input class="input-large" type="text" name="texto" placeholder="Comente aqui!" />
-			<input type="hidden" name="idNoticia" value=${noticia.id} />
-			<input type="hidden" name="autor" value="${usuarioLogado.login}" />
-			<button id="enviarComentario" class="btn" name="enviarComentario">Comentar</button>		
-		</form>
-		</div>
-	</div>
-	</div>
+	      <div class="media">
+		  		<!-- Imagem noticia aqui -->
+		    	<img class="media-object" width="180px" height="180px" src="">
+		  		
+		  		<div class="media-body">
+		    		<a href="noticia?id=${noticia.id }">
+		    			<h4 class="media-heading">${noticia.titulo}</h4>
+		    		</a>
+		    		<h5 class="media-heading">${noticia.subtitulo}</h5>
+		          <p class="text-right">Por ${noticia.autor}</p>
+		          <p align="justify">${noticia.texto}</p>
+		           
+		          <c:if test="${jornalistaLogado.nome==noticia.autor}">
+			          <a href="excluirnoticia?id=${noticia.id }" class="btn btn-default">
+			          	<span class="glyphicon glyphicon-comment"></span> Excluir
+			          </a>
+		          </c:if>
+		       	</div>  
+		    </div>
+		    <!-- Comentarios -->
 	
+		<div class="well">
+			<h5>Comentarios</h5>
+			<c:import url="comentario.jsp"></c:import>
+			<div class="well" align="right">
+			<form action="comentar_notica?idnotica=${noticia.id}" method="post">
+				<textarea id="texto" name="texto" rows="3" placeholder="Comente aqui!" 
+					style="margin: 0px 0px 10px; width: 803px; height: 60px;"></textarea>
+				
+				<input type="hidden" name="idNoticia" value=${noticia.id} />
+				<input type="hidden" name="autor" value="${usuarioLogado.login}" />
+				<p>
+				<button id="enviarComentario" class="btn" name="enviarComentario">Comentar</button>		
+			</form>
+			</div>
+		</div>
+	
+		     
+		  </div>
+		  </c:forEach>
+		</div>
+		
 	
 
 	<!-- Rodapé -->

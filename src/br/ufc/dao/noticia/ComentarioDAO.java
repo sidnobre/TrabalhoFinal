@@ -18,7 +18,7 @@ public class ComentarioDAO {
 	
 	public void inserir(Comentario comentario){
 
-		String sql = "INSERT INTO comentario (noticia, autor, texto) "
+		String sql = "INSERT INTO comentario (idNoticia, autor, texto) "
 					+ "VALUES (?,?,?)";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);

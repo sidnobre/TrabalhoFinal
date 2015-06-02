@@ -1,5 +1,8 @@
 package br.ufc.dao.usuario;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,9 +14,24 @@ import br.ufc.model.usuario.Usuario;
 public class UsuarioDAO {
 	private Connection conn;
 	
+	
 	public UsuarioDAO(Connection conn){
 		this.conn = conn;
 	}
+	
+    public static String md5(String senha){  
+        String sen = "";  
+        MessageDigest md = null;  
+        try {  
+            md = MessageDigest.getInstance("MD5");  
+        } catch (NoSuchAlgorithmException e) {  
+            e.printStackTrace();  
+        }  
+        BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));  
+        sen = hash.toString(16);              
+        return sen;  
+    }  
+      
 	
 	public void excluir(Usuario user) {
 
@@ -40,7 +58,7 @@ public class UsuarioDAO {
 			String sql = "select * from usuarios where login = ?  and senha = ?";
 			PreparedStatement stmt = this.conn.prepareStatement(sql);
 			stmt.setString(1, usuario.getLogin());
-			stmt.setString(2, usuario.getSenha());
+			stmt.setString(2, md5(usuario.getSenha()));
 		
 			ResultSet rs = stmt.executeQuery();
 			

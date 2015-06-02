@@ -16,7 +16,7 @@ import br.ufc.dao.noticia.ComentarioDAO;
 import br.ufc.dao.noticia.NoticiaDAO;
 import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.LeitorDAO;
-import br.ufc.model.noticia.Noticia;
+import br.ufc.model.noticia.Comentario;
 import br.ufc.model.usuario.Leitor;
 
 @Controller
@@ -45,15 +45,20 @@ public class LeitorController {
 		return "redirect:pagina_inicial";
 	}
 	
-	@RequestMapping("/comentar_noticia")
-	public String cadastraComentario(Noticia noticia, HttpSession session){
-		if(session.getAttribute("usuarioLogado")==null 
-				&& session.getAttribute("jornalistaLogado")==null
-				&& session.getAttribute("editorLogado")==null)		
-					return "acessonegado-login";
+	@RequestMapping("comentar_notica")
+	public String cadastraComentario(Comentario comentario, HttpSession session){
 		
-		//TERMINAR
-		return "";
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		ComentarioDAO cDAO = new ComentarioDAO(conn);
+		cDAO.inserir(comentario);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return "forward:noticia?id="+comentario.getIdNoticia();
 	}
 	
 	@RequestMapping("noticia")

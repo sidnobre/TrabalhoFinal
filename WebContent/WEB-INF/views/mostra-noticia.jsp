@@ -14,8 +14,13 @@
 	    		</a>
 	    		<h5 class="media-heading">${noticia.subtitulo}</h5>
 	          <p class="text-right">Por ${noticia.autor}</p>
-	          <p>${noticia.texto}</p>
-	          
+	          <p align="justify">${noticia.texto}</p>
+	           
+	          <c:if test="${jornalistaLogado.nome==noticia.autor}">
+		          <a href="excluirnoticia?id=${noticia.id }" class="btn btn-default">
+		          	<span class="glyphicon glyphicon-comment"></span> Excluir
+		          </a>
+	          </c:if>
 	       </div>  
 	    </div> 
 	  </div>

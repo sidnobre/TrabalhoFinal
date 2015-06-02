@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/rodape.css" />" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/redesocialbar.css" />" />
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 				
 			<div class="container">
