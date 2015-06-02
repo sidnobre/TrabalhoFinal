@@ -7,6 +7,9 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/menu.css" />" />
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>   
+<script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <title>Login</title>
@@ -14,7 +17,8 @@
 <body background="<c:url value="/resources/img/background.png" />">
 		<!--Cabeçalho da pagina -->
 	<div class="container">
-		<table background="<c:url value="/resources/img/header.jpg" />">
+	<div class="well">
+		<table>
 			<tr height="100">
 				<td width="50"></td>
 				<td width="600">
@@ -29,28 +33,34 @@
 				<td></td>
 			</tr>
 		</table>
+		<div id="nav" class="container">
+		<!-- Menu NAVBAR -->
+			<div id="nav" class="container">
+				<ul class="nav nav-pills" >
+						<li class="active"><a href="home">Home</a></li>
+						<li class="active"><a href="classificado">Classificados</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="active" class="dropdown-toggle"  data-toggle="dropdown">
+                            Seções
+                            <b class="caret"></b>
+                            </a>                            
+                            <ul class="dropdown-menu">
+                                <c:forEach items="${secoes}" var="secao">
+									<li class="active" ><a href="secao?idsecao=${secao.id}">${secao.titulo}</a></li>
+								</c:forEach>
+                            </ul>
+                        </li>
+                    
+				</ul>
+			</div>
+		</div>
+		</div>
+	</div>
 	</div>
 
-	<div id="nav" class="container">
-	<!-- Menu NAVBAR -->
-		<ul class="nav nav-pills" >
-				<li class="active"><a href="home">Home</a></li>
-				<li class="active"><a href="menu_jornalista">Menu Jornalista</a></li>
-				<li class="active"><a href="menu_editor">Menu Editor</a></li>
-				<li class="active" class="dropdown">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-					 	Seção
-					 <span class="caret"></span></a>
-					<ul class="dropdown-menu" role="menu" >
-					<c:forEach items="${secoes}" var="secao">
-						<li><a href="#">${secao.titulo}</a></li>
-					</c:forEach>
-					</ul>
-				</li>	
-		</ul>
-	</div>
 	<!-- Formulario -->
-	<div align="center">
+	<div class="container">
+	<div class="well" align="center">
 	 <form action="efetuaLogin" method="post">
 				
 				<div class="input-group">
@@ -66,5 +76,9 @@
 				
 	</form>
 	</div>
+	</div>
+	
+		<!-- Rodapé -->
+	<c:import url="../rodape.jsp" />
 </body>
 </html>

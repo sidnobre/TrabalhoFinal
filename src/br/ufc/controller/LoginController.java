@@ -6,23 +6,26 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
+import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.UsuarioDAO;
 import br.ufc.model.usuario.Usuario;
 
 @Controller
 public class LoginController {
 	
-	
-		@RequestMapping("boasvindas")
-		public String boasVindas(){
-			return "login/bemvindo";
-		}
 		
 		@RequestMapping("loginForm")
-		public String loginForm(){
+		public String loginForm(Model model){
+			FabricaDeConexoes fc = new FabricaDeConexoes();
+			Connection conn = fc.getConexao();
+			
+			SecaoDAO sDAO = new SecaoDAO(conn);
+			model.addAttribute("secoes", sDAO.listar());
+			
 			return "login/formulario-login";		
 		}
 		

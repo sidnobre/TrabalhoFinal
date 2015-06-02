@@ -15,9 +15,9 @@
 		<!--Cabeçalho da pagina -->
 	<c:import url="../../cabecalho-login.jsp" />
 	
-	<!-- Noticias -->
+	<!-- Noticias -->	
 	<c:import url="../../mostra-noticia.jsp"></c:import>
-	
+
 	<!-- Comentarios -->
 	<div class="container">
 	<div class="well">

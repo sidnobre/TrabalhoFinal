@@ -42,7 +42,7 @@ public class LeitorController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}			
-		return "redirect:pagina_inicial";
+		return "redirect:home";
 	}
 	
 	@RequestMapping("comentar_notica")

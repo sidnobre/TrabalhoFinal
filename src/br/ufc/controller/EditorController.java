@@ -53,7 +53,7 @@ public class EditorController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}			
-		return "redirect:editor/menu_editor";
+		return "redirect:menu_editor";
 	}
 	
 	@RequestMapping("cadastraSecao")
@@ -71,7 +71,7 @@ public class EditorController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}			
-		return "redirect:editor/menu_editor";
+		return "redirect:menu_editor";
 	}
 	
 }

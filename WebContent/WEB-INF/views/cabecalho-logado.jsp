@@ -40,6 +40,8 @@
 								</c:forEach>
                             </ul>
                         </li>
+						<li class="active"><a href="jornalista/menu_jornalista">Menu Jornalista</a></li>
+						<li class="active"><a href="editor/menu_editor">Menu Editor</a></li>
                         <li class="active"><a href="logout">Sair</a></li>
                     
 				</ul>

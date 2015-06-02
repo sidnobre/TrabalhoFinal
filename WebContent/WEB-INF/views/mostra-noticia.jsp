@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f"%>
 	<!-- Noticias -->
 	<div class="container">
+	<div class="well">
 	<c:forEach items="${noticias}" var="noticia">
 	<div class="well">
       <div class="media">
@@ -26,3 +27,5 @@
 	  </div>
 	  </c:forEach>
 	</div>
+	</div>
+	
