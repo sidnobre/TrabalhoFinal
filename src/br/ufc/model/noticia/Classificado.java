@@ -15,7 +15,6 @@ public class Classificado {
 	private String titulo;
 	@NotBlank
 	private String texto;
-	@NotBlank
 	private float preco;
 	private String telefone;
 	private float melhorOferta;

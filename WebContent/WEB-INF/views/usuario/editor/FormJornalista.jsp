@@ -46,7 +46,7 @@
 					<td><input type="password" name="senha" /> <form:errors
 							path="jornalista.senha" cssStyle="color:red" /></td>
 				</tr>
-	
+
 				<tr>
 					<td></td>
 					<td><input type="reset" value="Limpar" class="btn btn-danger" />

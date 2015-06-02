@@ -10,8 +10,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
+import br.ufc.dao.noticia.ClassificadoDAO;
 import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.JornalistaDAO;
+import br.ufc.model.noticia.Classificado;
 import br.ufc.model.noticia.Secao;
 import br.ufc.model.usuario.Jornalista;
 
@@ -74,5 +76,22 @@ public class EditorController {
 		return "redirect:menu_editor";
 	}
 	
+	@RequestMapping("cadastraClassificado")
+	public String cadastraClassificado(@Valid Classificado classificado, BindingResult result){
+		if(result.hasErrors()){
+			return "usuario/editor/FormSecao";
+			}
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		ClassificadoDAO cDAO = new ClassificadoDAO(conn);
+		cDAO.inserir(classificado);
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:menu_editor";
+	}
 }
 

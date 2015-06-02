@@ -15,7 +15,48 @@
 	<c:import url="cabecalho-editor.jsp"></c:import>
 
 	<!-- Formulario -->
-
+	<div class="container" align="center">
+	<div class="well">
+	<form action="cadastraClassificado" method="post">
+		<table>
+				<tr>
+					<h2>Cadastro de Classificado</h2>
+				</tr>
+				<tr>
+					<td>Título:</td>
+					<td><input type="text" name="titulo" /> <form:errors
+							path="classificado.titulo" cssStyle="color:red" /></td>
+				</tr>
+	
+				<tr>
+					<td>Descrição:</td>
+					<td><input type="text" name="texto"> <form:errors
+							path="classificado.texto" cssStyle="color:red" /></td>
+				</tr>
+				
+				<tr>
+					<td>Telefone: </td>
+					<td><input type="text" name="telefone" /> <form:errors
+							path="classificado.telefone" cssStyle="color:red" /></td>
+				</tr>
+				
+				<tr>
+					<td>Preço:</td>
+					<td><input type="number" step="0.01" name="preco" /> <form:errors
+							path="classificado.preco" cssStyle="color:red" /></td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td><input type="reset" value="Limpar" class="btn btn-danger" />
+						<input type="submit" value="Confirmar" class="btn btn-success" />
+					</td>
+				</tr>
+			</table>
+	
+	</form>
+	</div>
+	</div>
 	<!-- Rodapé -->
 	<c:import url="../../rodape.jsp" />
 
