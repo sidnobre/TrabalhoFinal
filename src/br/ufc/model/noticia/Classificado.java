@@ -1,6 +1,6 @@
 package br.ufc.model.noticia;
 
-import java.util.Calendar;
+import java.sql.Date;
 
 import javax.persistence.GeneratedValue;
 
@@ -19,7 +19,7 @@ public class Classificado {
 	private float preco;
 	private String telefone;
 	private float melhorOferta;
-	private Calendar dataOferta;
+	private Date dataOferta;
 	private String autorOferta;
 	
 	public int getId() {
@@ -58,11 +58,11 @@ public class Classificado {
 	public void setMelhorOferta(float melhorOferta) {
 		this.melhorOferta = melhorOferta;
 	}
-	public Calendar getDataOferta() {
+	public Date getDataOferta() {
 		return dataOferta;
 	}
-	public void setDataOferta(Calendar dataOferta) {
-		this.dataOferta = dataOferta;
+	public void setDataOferta(Date date) {
+		this.dataOferta = date;
 	}
 	public String getAutorOferta() {
 		return autorOferta;
