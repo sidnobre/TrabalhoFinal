@@ -54,16 +54,38 @@ public class NoticiaDAO {
 		}
 		
 	}
+	
+	 public int numPaginas(){
+		 int paginas=1, qtd_noticia=0;
+		 String sql = "select count(*) as qtd_noticia FROM noticia";
+		 PreparedStatement stmt;
+		try {
+			stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()){
+				qtd_noticia=rs.getInt("qtd_noticia");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(qtd_noticia>10){
+			paginas = qtd_noticia/10;
+		}
+		return paginas;
+	 }
+	
+	
 	//Lista ja em ordem da mais nova para mais antiga
 	public List<Noticia> listar(int pagina){
 		List<Noticia> noticias = new ArrayList<Noticia>();
 		String sql = "select * FROM noticia ORDER BY data_noticia DESC LIMIT 10 OFFSET ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			if(pagina==0)
-				stmt.setInt(1, pagina);
+			if(pagina>1)
+				stmt.setInt(1, (pagina-1)*10);
 			else
-				stmt.setInt(1, pagina*10);
+				stmt.setInt(1, pagina);
 			ResultSet rs = stmt.executeQuery();
 					
 			while(rs.next()){

@@ -4,7 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />     
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/menu.css" />" />      
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />  
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -18,6 +19,16 @@
 	<!-- Noticias -->
 	<c:import url="mostra-noticia.jsp"></c:import>
 	
+	<div class="text-center">
+		<ul class="pagination">
+			<li class="disabled"><span>«</span></li>
+			<li><a href="page?num=1">1</a></li>
+			<li><a href="page?num=2">2</a></li>
+			<li><a href="page?num=3">3</a></li>
+			</li><li class="disabled"><span>»</span></li>	
+		</ul>
+	</div>
+		
 	<!-- Rodapé -->
 	<c:import url="rodape.jsp" />
 	

@@ -97,10 +97,11 @@ public class LeitorController {
 		if(session.getAttribute("usuarioLogado")==null 
 				&& session.getAttribute("jornalistaLogado")==null
 				&& session.getAttribute("editorLogado")==null)
-					return "usuario/leitor/noticia-login";
+					return "usuario/leitor/secao-login";
 		
-		return "usuario/leitor/noticia-logado";
+		return "usuario/leitor/secao-logado";
 	}
+	
 	
 	
 }

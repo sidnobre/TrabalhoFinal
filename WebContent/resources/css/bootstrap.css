@@ -249,6 +249,10 @@ a:hover, a:focus {
 	margin-left: 20px;
 }
 
+.pagination>li>a, .pagination>li>span {
+	border-radius: 50% !important;margin: 0 5px;
+}
+
 .container, .navbar-static-top .container, .navbar-fixed-top .container,
 	.navbar-fixed-bottom .container {
 	width: 940px;

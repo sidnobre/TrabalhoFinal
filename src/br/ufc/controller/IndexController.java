@@ -28,7 +28,30 @@ public class IndexController {
 		model.addAttribute("secoes", sDAO.listar());
 		
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
-		model.addAttribute("noticias", nDAO.listar(0));
+		model.addAttribute("noticias", nDAO.listar(1));
+		model.addAttribute("page", nDAO.numPaginas());
+		
+		if(session.getAttribute("usuarioLogado")==null 
+				&& session.getAttribute("jornalistaLogado")==null
+				&& session.getAttribute("editorLogado")==null)		
+					return "index_login";
+		else
+			return "index_bemvindo";
+	}
+	
+	@RequestMapping("page")
+	public String paginacao(int num, Model model, HttpSession session){
+		if(num<1) num=1;
+		
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		
+		SecaoDAO sDAO = new SecaoDAO(conn);
+		model.addAttribute("secoes", sDAO.listar());
+		
+		NoticiaDAO nDAO = new NoticiaDAO(conn);
+		model.addAttribute("noticias", nDAO.listar(num));
+		model.addAttribute("page", nDAO.numPaginas());
 		
 		if(session.getAttribute("usuarioLogado")==null 
 				&& session.getAttribute("jornalistaLogado")==null
