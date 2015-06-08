@@ -18,6 +18,17 @@
 	<!-- Noticias -->
 	<c:import url="mostra-noticia.jsp"></c:import>
 	
+	<!-- Paginacao -->
+	<div align="center" class="pagination">
+		<ul>
+			<li><a href="#">«</a></li>
+			<li><a href="page?num=1">1</a></li>
+			<li><a href="page?num=2">2</a></li>
+			<li><a href="page?num=3">3</a></li>
+			<li><a href="#">»</a></li>	
+		</ul>
+	</div>
+	
 	<!-- Rodapé -->
 	<c:import url="rodape.jsp" />
 	

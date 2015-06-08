@@ -19,13 +19,14 @@
 	<!-- Noticias -->
 	<c:import url="mostra-noticia.jsp"></c:import>
 	
-	<div class="text-center">
-		<ul class="pagination">
-			<li class="disabled"><span>«</span></li>
+	<!-- Paginacao -->
+	<div align="center" class="pagination">
+		<ul>
+			<li><a href="#">«</a></li>
 			<li><a href="page?num=1">1</a></li>
 			<li><a href="page?num=2">2</a></li>
 			<li><a href="page?num=3">3</a></li>
-			</li><li class="disabled"><span>»</span></li>	
+			<li><a href="#">»</a></li>	
 		</ul>
 	</div>
 		

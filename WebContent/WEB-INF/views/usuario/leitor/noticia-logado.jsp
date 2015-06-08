@@ -4,7 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />     
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.css" />" />
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">     
 <script type="text/javascript" src="<c:url value="/resources/js/jquery-2.1.4.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js" />"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
@@ -30,13 +31,25 @@
 		    		<h5 class="media-heading">${noticia.subtitulo}</h5>
 		          <p class="text-right">Por ${noticia.autor}</p>
 		          <p align="justify">${noticia.texto}</p>
-		           
-		          <c:if test="${jornalistaLogado.nome==noticia.autor}">
-			          <a href="excluirnoticia?id=${noticia.id }" class="btn btn-default">
-			          	<span class="glyphicon glyphicon-comment"></span> Excluir
+		        
+		        <!-- Botao Excluir Teste -->
+		        <c:if test="${not empty editorLogado.login}">
+		          	<div align="right">
+			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
+			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
 			          </a>
-		          </c:if>
-		       	</div>  
+			          <p>
+			         </div>
+		    	  </c:if>
+		          <c:if test="${jornalistaLogado.login eq noticia.autor}">
+		          	<div align="right">
+			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
+			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
+			          </a>
+			          <p>
+			         </div>
+		    	  </c:if>
+		       	</div>
 		    </div>
 		    <!-- Comentarios -->
 	

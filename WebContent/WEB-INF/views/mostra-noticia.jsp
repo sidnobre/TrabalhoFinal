@@ -17,15 +17,26 @@
 	          <p class="text-right">Por ${noticia.autor}</p>
 	          <p align="justify">${noticia.texto}</p>
 	           
-	          <c:if test="${jornalistaLogado.nome==noticia.autor}">
-		          <a href="excluirnoticia?id=${noticia.id }" class="btn btn-default">
-		          	<span class="glyphicon glyphicon-comment"></span> Excluir
-		          </a>
-	          </c:if>
+	          <!-- Botao Excluir Teste -->
+		        <c:if test="${not empty editorLogado.login}">
+		          	<div align="right">
+			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
+			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
+			          </a>
+			          <p>
+			         </div>
+		    	  </c:if>
+		          <c:if test="${jornalistaLogado.login eq noticia.autor}">
+		          	<div align="right">
+			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
+			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
+			          </a>
+			          <p>
+			         </div>
+		    	  </c:if>
 	       </div>  
 	    </div> 
 	  </div>
 	  </c:forEach>
 	</div>
 	</div>
-	
