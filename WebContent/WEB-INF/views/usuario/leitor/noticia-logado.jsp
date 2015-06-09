@@ -62,7 +62,17 @@
 					style="margin: 0px 0px 10px; width: 803px; height: 60px;"></textarea>
 				
 				<input type="hidden" name="idNoticia" value=${noticia.id} />
+				<c:if test="${not empty usuarioLogado.login}">
 				<input type="hidden" name="autor" value="${usuarioLogado.login}" />
+				</c:if>
+				
+				<c:if test="${not empty jornalistaLogado.login}">
+					<input type="hidden" name="autor" value="${jornalistaLogado.login}" />
+				</c:if>
+				
+				<c:if test="${not empty editorLogado.login}">
+					<input type="hidden" name="autor" value="${editorLogado.login}" />
+				</c:if>
 				<p>
 				<button id="enviarComentario" class="btn" name="enviarComentario">Comentar</button>		
 			</form>
