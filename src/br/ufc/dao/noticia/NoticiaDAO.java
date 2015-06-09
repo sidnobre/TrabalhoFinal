@@ -38,12 +38,12 @@ public class NoticiaDAO {
 		}
 	}
 	
-	public void excluir(Noticia noticia){
+	public void excluir(int id){
 		String sql = "DELETE FROM noticia WHERE id=?";
 		
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setLong(1, noticia.getId());
+			stmt.setLong(1, id);
 			stmt.executeUpdate();
 			stmt.close();
 			 

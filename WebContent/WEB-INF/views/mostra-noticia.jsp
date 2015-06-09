@@ -20,17 +20,29 @@
 	          <!-- Botao Excluir Teste -->
 		        <c:if test="${not empty editorLogado.login}">
 		          	<div align="right">
-			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
-			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
-			          </a>
+			         <form action="excluirnoticia" method="post">
+		          		<input type="hidden" name="login" value="${editorLogado.login}">
+		          		<input type="hidden" name="tipo" value="editor">
+		          		<input type="hidden" name="autor" value="${noticia.autor}">
+		          		<input type="hidden" name="id" value=${noticia.id} />
+		          		<button type="submit" class="btn btn-default">
+		          			<i class="fa fa-trash-o fa-lg"></i>Excluir
+		          		</button>
+		          		</form>
 			          <p>
 			         </div>
 		    	  </c:if>
+		    	  
 		          <c:if test="${jornalistaLogado.login eq noticia.autor}">
 		          	<div align="right">
-			          <a href="excluirnoticia?id=${noticia.id}" class="btn btn-default">
-			          	<i class="fa fa-trash-o fa-lg"></i>Excluir
-			          </a>
+		          		<form action="excluirnoticia" method="post">
+		          		<input type="hidden" name="login" value="${jornalistaLogado.login}">
+		          		<input type="hidden" name="autor" value="${noticia.autor}">
+		          		<input type="hidden" name="id" value=${noticia.id} />
+		          		<button type="submit" class="btn btn-default">
+		          			<i class="fa fa-trash-o fa-lg"></i>Excluir
+		          		</button>
+		          		</form>
 			          <p>
 			         </div>
 		    	  </c:if>

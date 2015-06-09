@@ -17,7 +17,9 @@ import br.ufc.dao.noticia.NoticiaDAO;
 import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.LeitorDAO;
 import br.ufc.model.noticia.Comentario;
+import br.ufc.model.noticia.Noticia;
 import br.ufc.model.usuario.Leitor;
+import br.ufc.model.usuario.Usuario;
 
 @Controller
 public class LeitorController {
@@ -103,6 +105,30 @@ public class LeitorController {
 	}
 	
 	
+	@RequestMapping("excluirnoticia")
+	public String excluirNoticia(Noticia noticia, Usuario usuario, HttpSession session){
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		NoticiaDAO nDAO = new NoticiaDAO(conn);
+		
+		System.out.println(usuario.getLogin());
+		System.out.println(usuario.getTipo());
+		
+		if(noticia.getAutor().equals(usuario.getLogin())){
+			nDAO.excluir(noticia.getId());
+		}
+		else if(usuario.getTipo().equals("editor")){ 
+			nDAO.excluir(noticia.getId());
+		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "redirect:home";
+	}
 	
 }
 	

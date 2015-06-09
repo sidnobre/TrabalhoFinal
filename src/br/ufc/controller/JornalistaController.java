@@ -55,4 +55,5 @@ public class JornalistaController {
 		}
 		return "redirect:menu_jornalista";
 	}
+
 }

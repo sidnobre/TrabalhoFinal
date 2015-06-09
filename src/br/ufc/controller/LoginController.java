@@ -19,7 +19,7 @@ public class LoginController {
 	
 		
 		@RequestMapping("loginForm")
-		public String loginForm(Model model){
+		public String loginForm(Model model){			
 			FabricaDeConexoes fc = new FabricaDeConexoes();
 			Connection conn = fc.getConexao();
 			
