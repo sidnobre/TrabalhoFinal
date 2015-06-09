@@ -111,9 +111,6 @@ public class LeitorController {
 		Connection conn = fc.getConexao();
 		NoticiaDAO nDAO = new NoticiaDAO(conn);
 		
-		System.out.println(usuario.getLogin());
-		System.out.println(usuario.getTipo());
-		
 		if(noticia.getAutor().equals(usuario.getLogin())){
 			nDAO.excluir(noticia.getId());
 		}
