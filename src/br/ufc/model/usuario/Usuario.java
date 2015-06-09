@@ -1,6 +1,5 @@
 package br.ufc.model.usuario;
 
-import javax.persistence.GeneratedValue;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -8,7 +7,6 @@ import org.hibernate.validator.constraints.NotBlank;
 //Classe pai dos modelos dependentes de Ususario onde os filhos modificam apenas a variavel tipo
 
 public class Usuario {
-	@GeneratedValue
 	private int id;
 	
 	@NotBlank(message = "*")

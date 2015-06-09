@@ -1,13 +1,10 @@
 package br.ufc.model.noticia;
 
-import javax.persistence.GeneratedValue;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 
 public class Secao {
 	
-	@GeneratedValue
 	private int id;
 	@NotBlank
 	private String titulo;

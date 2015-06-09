@@ -2,7 +2,6 @@ package br.ufc.model.noticia;
 
 import java.sql.Date;
 
-import javax.persistence.GeneratedValue;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -10,7 +9,6 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class Noticia {
 
-	@GeneratedValue
 	private int id;
 	@NotBlank(message = "*")  @Size(max=150, message = "*")
 	private String titulo;

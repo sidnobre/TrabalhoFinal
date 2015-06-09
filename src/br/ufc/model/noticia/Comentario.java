@@ -1,13 +1,10 @@
 package br.ufc.model.noticia;
 
-import javax.persistence.GeneratedValue;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 
 public class Comentario {
 
-	@GeneratedValue
 	private int id;
 	@NotBlank
 	private int idNoticia;

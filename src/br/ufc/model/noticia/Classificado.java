@@ -2,14 +2,11 @@ package br.ufc.model.noticia;
 
 import java.sql.Date;
 
-import javax.persistence.GeneratedValue;
-
 import org.hibernate.validator.constraints.NotBlank;
 
 
 public class Classificado {
 	
-	@GeneratedValue
 	private int id;
 	@NotBlank
 	private String titulo;

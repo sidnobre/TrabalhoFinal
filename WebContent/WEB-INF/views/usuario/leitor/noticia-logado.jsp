@@ -51,8 +51,8 @@
 		    	  </c:if>
 		       	</div>
 		    </div>
-		    <!-- Comentarios -->
-	
+
+	    <!-- Comentarios -->	
 		<div class="well">
 			<h5>Comentarios</h5>
 			<c:import url="comentario.jsp"></c:import>
