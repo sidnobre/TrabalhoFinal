@@ -14,8 +14,12 @@
 
 <body background="<c:url value="/resources/img/background.png" />">
 		<!--Cabeçalho da pagina -->
-	<c:import url="../../cabecalho-login.jsp" />
-	
+	<c:if test="${empty usuarioLogado.login and empty jornalistaLogado.login and empty editorLogado.login}">
+		<c:import url="../../cabecalho-login.jsp" />
+	</c:if>
+	<c:if test="${not empty usuarioLogado.login or not empty jornalistaLogado.login or not empty editorLogado.login}">
+		<c:import url="../../cabecalho-logado.jsp" />
+	</c:if>
 	<!-- Classificados -->	
 	<c:import url="mostra-classificado.jsp"></c:import>
 

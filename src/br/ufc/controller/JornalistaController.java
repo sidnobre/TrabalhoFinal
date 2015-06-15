@@ -40,8 +40,9 @@ public class JornalistaController {
 	@RequestMapping("efetuar_cadastro_noticia")
 	public String cadastarNoticia(@Valid Noticia noticia, BindingResult result, HttpSession session) {
 		if(result.hasErrors()){
-			return "/usuario/jornalista/FormNoticia";
+			return "forward:cadastra_noticia";
 		}
+		
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
 		NoticiaDAO nDAO = new NoticiaDAO(conn);

@@ -82,10 +82,12 @@ public class NoticiaDAO {
 		String sql = "select * FROM noticia ORDER BY data_noticia DESC LIMIT 10 OFFSET ?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			if(pagina>1)
-				stmt.setInt(1, (pagina-1)*10);
+			pagina--;
+			if(pagina>=1)
+				stmt.setInt(1, pagina*10);
 			else
 				stmt.setInt(1, pagina);
+			
 			ResultSet rs = stmt.executeQuery();
 					
 			while(rs.next()){
@@ -108,6 +110,7 @@ public class NoticiaDAO {
 		}
 		return noticias;
 	}
+
 	//Lista por id
 		public List<Noticia> listarID(int id){
 			List<Noticia> noticias = new ArrayList<Noticia>();

@@ -12,10 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
+import br.ufc.dao.noticia.ClassificadoDAO;
 import br.ufc.dao.noticia.ComentarioDAO;
 import br.ufc.dao.noticia.NoticiaDAO;
 import br.ufc.dao.noticia.SecaoDAO;
 import br.ufc.dao.usuario.LeitorDAO;
+import br.ufc.model.noticia.Classificado;
 import br.ufc.model.noticia.Comentario;
 import br.ufc.model.noticia.Noticia;
 import br.ufc.model.usuario.Leitor;
@@ -32,7 +34,7 @@ public class LeitorController {
 	@RequestMapping ("/cadastraLeitor")
 	public String cadastraLeitor(@Valid Leitor leitor, BindingResult result){
 		if(result.hasErrors()){
-			return "/usuario/leitor/cadastrar_leitor";
+			return "forward:cadastrarLeitor";
 			}
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
@@ -81,6 +83,13 @@ public class LeitorController {
 				&& session.getAttribute("jornalistaLogado")==null
 				&& session.getAttribute("editorLogado")==null)
 					return "usuario/leitor/noticia-login";
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return "usuario/leitor/noticia-logado";
 	}
@@ -100,6 +109,13 @@ public class LeitorController {
 				&& session.getAttribute("jornalistaLogado")==null
 				&& session.getAttribute("editorLogado")==null)
 					return "usuario/leitor/secao-login";
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return "usuario/leitor/secao-logado";
 	}
@@ -120,11 +136,50 @@ public class LeitorController {
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return "redirect:home";
+	}
+	
+	@RequestMapping("classificado")
+	public String classificado(Model model, HttpSession session) {
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		ClassificadoDAO cDAO = new ClassificadoDAO(conn);
+		model.addAttribute("classificados", cDAO.listar());
+		
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return "usuario/leitor/classificado";
+	}
+	
+	@RequestMapping("ofertar_classificado")
+	public String ofertarClassificado(Classificado classificado, float valor){
+		if(valor<=classificado.getMelhorOferta()){
+			return "redirect:classificado"; 
+		}else{
+			classificado.setMelhorOferta(valor);
+		}
+		
+		FabricaDeConexoes fc = new FabricaDeConexoes();
+		Connection conn = fc.getConexao();
+		ClassificadoDAO cDAO = new ClassificadoDAO(conn);
+		cDAO.altera(classificado);
+	
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "redirect:classificado";
 	}
 	
 }

@@ -43,7 +43,7 @@ public class EditorController {
 	@RequestMapping("cadastraJornalista")
 	public String cadastrarJornalista(@Valid Jornalista jornalista, BindingResult result) {
 		if(result.hasErrors()){
-			return "usuario/editor/FormClassificado";
+			return "forward:cadastro_jornalista";
 			}
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
@@ -61,7 +61,7 @@ public class EditorController {
 	@RequestMapping("cadastraSecao")
 	public String cadastrarSecao(@Valid Secao secao, BindingResult result) {
 		if(result.hasErrors()){
-			return "usuario/editor/FormSecao";
+			return "forward:cadastro_secao";
 			}
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();
@@ -79,7 +79,7 @@ public class EditorController {
 	@RequestMapping("cadastraClassificado")
 	public String cadastraClassificado(@Valid Classificado classificado, BindingResult result){
 		if(result.hasErrors()){
-			return "usuario/editor/FormSecao";
+			return "forward:cadastro_classificado";
 			}
 		FabricaDeConexoes fc = new FabricaDeConexoes();
 		Connection conn = fc.getConexao();

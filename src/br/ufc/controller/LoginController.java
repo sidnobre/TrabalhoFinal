@@ -33,6 +33,10 @@ public class LoginController {
 		  	se nao houver erros criar uma sessao		 */
 		@RequestMapping("efetuaLogin")
 		public String efetuaLogin(Usuario usuario, HttpSession session) {
+			//Limpar sessao
+			session.setAttribute("usuarioLogado", null);
+			session.setAttribute("jornalistaLogado", null);		
+			session.setAttribute("editorLogado", null);
 			
 			FabricaDeConexoes fc = new FabricaDeConexoes();
 			Connection conn = fc.getConexao();

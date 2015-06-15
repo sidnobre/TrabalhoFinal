@@ -35,6 +35,26 @@ public class ClassificadoDAO {
 		}
 	}
 	
+	public void altera(Classificado classificado){
+		String sql = "UPDATE classificado SET melhor_oferta=?, autor_oferta=? WHERE id=?";
+			System.out.println("entrou AKI");
+			try {
+				PreparedStatement stmt;
+				stmt = conn.prepareStatement(sql);
+				
+				stmt.setFloat(1, classificado.getMelhorOferta());
+				stmt.setString(2, classificado.getAutorOferta());
+				stmt.setInt(3, classificado.getId());
+				stmt.execute();
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+	}
+	
 	public List<Classificado>  listar() {
 		List<Classificado> classificados = new ArrayList<Classificado>();
 		String sql = "select * FROM classificado";
@@ -47,6 +67,7 @@ public class ClassificadoDAO {
 				Classificado classificado = new Classificado();
 				classificado.setId(rs.getInt("id"));
 				classificado.setTitulo(rs.getString("titulo"));
+				classificado.setTexto(rs.getString("texto"));
 				classificado.setPreco(rs.getFloat("preco"));
 				classificado.setTelefone(rs.getString("telefone"));
 				classificado.setMelhorOferta(rs.getFloat("melhor_oferta"));
@@ -76,6 +97,7 @@ public class ClassificadoDAO {
 				Classificado classificado = new Classificado();
 				classificado.setId(rs.getInt("id"));
 				classificado.setTitulo(rs.getString("titulo"));
+				classificado.setTexto(rs.getString("texto"));
 				classificado.setPreco(rs.getFloat("preco"));
 				classificado.setTelefone(rs.getString("telefone"));
 				classificado.setMelhorOferta(rs.getFloat("melhor_oferta"));
