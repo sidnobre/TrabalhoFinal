@@ -43,7 +43,7 @@
 		<div>
 		  <label>Imagem</label>
 		  <div>
-		     <input class="inputlg" type="file" name="imagemFile">
+		     < <input type="file" name="imagem" accept="image/*">
 		   </div>
 		</div>
 		
