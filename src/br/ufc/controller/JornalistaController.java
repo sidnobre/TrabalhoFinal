@@ -1,5 +1,8 @@
 package br.ufc.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import br.ufc.dao.fabrica.FabricaDeConexoes;
 import br.ufc.dao.noticia.NoticiaDAO;

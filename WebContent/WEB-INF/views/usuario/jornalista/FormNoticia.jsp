@@ -17,7 +17,7 @@
 	<!-- Formulario -->
 	<div class="container" align="center">
 	<div class="well">
-		<form action="efetuar_cadastro_noticia" method="post"">
+		<form action="efetuar_cadastro_noticia" method="post">
 		<h2>Cadastro de Notícia</h2>
 		<!-- Titulo -->
 		<div class="control-group">
@@ -43,7 +43,7 @@
 		<div>
 		  <label>Imagem</label>
 		  <div>
-		     < <input type="file" name="imagem" accept="image/*">
+		     <input type="file" name="file" accept="image/*">
 		   </div>
 		</div>
 		
